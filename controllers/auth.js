@@ -50,9 +50,9 @@ exports.register = (req, res) => {
           console.log("User Registered:", results);
   
           if (role === "admin") {
-            return res.render("adminDashboard"); // Render adminDashboard for admins
+            return res.render("adminDashboard"); 
           } else {
-            return res.redirect("/userDashboard"); // Redirect users to the login page
+            return res.redirect("/userDashboard"); 
           }
         });
       } catch (error) {
@@ -93,14 +93,14 @@ exports.login = (req, res) => {
                 });
             }
 
-            // At this point, the user is authenticated
+          
             console.log("User Logged In:", user);
 
-            // Redirect to admin dashboard if the user is an admin
+            
             if (user.role === "admin") {
                 return res.redirect("/adminDashboard");
             } else {
-                return res.redirect("/userDashboard"); // Redirect regular users to their dashboard
+                return res.redirect("/userDashboard"); 
             }
         } catch (error) {
             console.error(error);

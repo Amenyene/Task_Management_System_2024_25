@@ -34,7 +34,7 @@ db.connect( (error) => {
 //define routes
 app.use('/', require('./routes/pages'));
 app.use('/auth' , require('./routes/auth'));
-//app.use('/tasks', require('./routes/tasks')); // Add this line for tasks
+
 
 
 app.listen(5000, () => {
