@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Admin Dashboard</title>
+</head>
+<body> 
+        <nav>
+            <h4>Admin Dashboard</h4>
+            <ul>
+            <li><a class="text-white mr-2" href="/AdminDashboard">Dashboard</a></li>
+            <li><a class="text-white mr-2" href="/post task.html">Post Task</a></li>
+            <li><a class="text-white" href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    <main class="container mt-5">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Enter Keyword to search">
+            </div>
+            <div class="todo-item">
+                <div class="todo-details">
+                    <h5 class="aa">Update Website Content</h5>
+                    <p>Review esisting website content</p>
+                    <p>Due Date: <strong>Mar 11, 2024 </strong></p>
+                    <p>Priority: <strong>HIGH</strong></p>
+                    <p>Task taker: <strong>Hayat Belay </strong></p>
+                    <p>Status: <strong>PENDING </strong></p>
+                </div>
+                <div class="todo-actions">
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </div>
+            </div>
+            <div class="todo-item">
+                <div class="todo-details">
+                    <h5 class="aa">Prepare Monthly Report</h5>
+                    <h4> Gather data from various departments ,analyse and compile it </h4> 
+                    <p>Due Date: <strong> Mar 12, 2024 </strong></p>
+                    <p>Priority: <strong>HIGH </strong></p>
+                    <p>Task taker: <strong>Kebede Lema </strong></p>
+                    <p>Status:  <strong>PENDING </strong></p>
+                </div>
+                <div class="todo-actions">
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </div>
+            </div>
+            <div class="todo-item">
+                <div class="todo-details">
+                    <h5 class="aa">Complete Project Proposal</h5>
+                    <h4>write a detailed proposal scope.</h4>
+                    <p>Due Date: <strong> Mar 13, 2024 </strong></p>
+                    <p>Priority: <strong>MEDIUM </strong></p>
+                    <p>Task taker: <strong>Hanan Girma </strong></p>
+                    <p>Status: <strong>PENDING </strong></p>
+                </div>
+                <div class="todo-actions">
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </main>
+            <tbody>
+                {{#each tasks}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.description}}</td>
+                    <td>{{this.status}}</td>
+                    <td>
+                        <a href="/tasks/edit/{{this.id}}" class="btn btn-warning">Edit</a>
+                        <form action="/tasks/delete/{{this.id}}" method="POST" class="d-inline">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <script src="../script.ts"></script>
+</body>
+</html>
